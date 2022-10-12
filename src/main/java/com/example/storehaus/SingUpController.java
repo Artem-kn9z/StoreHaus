@@ -1,15 +1,12 @@
 package com.example.storehaus;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.sql.SQLException;
 
 public class SingUpController {
 
@@ -17,29 +14,32 @@ public class SingUpController {
     private TextField Login;
 
     @FXML
+    private Label errorEnter;
+
+    @FXML
     private PasswordField PasswordField;
 
     @FXML
-    private Button sinnUpButton;
+    private Button singUpButton;
 
     @FXML
-    void sinnUpButton1() {
-        sinnUpButton.setOnAction(event -> {
-            sinnUpButton.getScene().getWindow().hide();
+    void singUpButton1() {
+        singUpButton.setOnAction(event -> {
+            String loginText = Login.getText().trim();
+            String loginPassword = PasswordField.getText().trim();
+            if(!loginText.equals("") && !loginPassword.equals("")){
+                //if(loginText.equals("admin") && loginPassword.equals("12345")){
+                    loginAdmin(loginText, loginPassword);//}
+            }else  errorEnter.setText("Login and password is empty");
 
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("hello-view.fxml"));
 
-            try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
         });
+    }
+
+    private void loginAdmin(String loginText, String loginPassword) {
+        singUpButton.getScene().getWindow().hide();
+        FxmlLoader fxmlLoader = new FxmlLoader();
+        fxmlLoader.fxmlLoader("hello-view.fxml");
     }
 
 }
