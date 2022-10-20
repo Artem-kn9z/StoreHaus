@@ -37,7 +37,7 @@
    <center>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="211.0" prefWidth="388.0" spacing="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="workingWithStorehausButton" minHeight="0.0" minWidth="2.0" mnemonicParsing="false" onAction="#workingWithWorkersButton1" prefHeight="294.0" prefWidth="151.0" text="Working with storehaus" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+            <Button fx:id="workingWithStorehausButton" minHeight="0.0" minWidth="2.0" mnemonicParsing="false" onAction="#workingWithStorehausButton1" prefHeight="294.0" prefWidth="151.0" text="Working with storehaus" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
             <Button fx:id="workingWithWorkersButton" minHeight="0.0" minWidth="2.0" mnemonicParsing="false" onAction="#workingWithWorkersButton1" prefHeight="294.0" prefWidth="151.0" text="Working with workers" textAlignment="CENTER" wrapText="true" />
          </children>
       </HBox>

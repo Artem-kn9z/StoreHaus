@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SingUpController {
@@ -23,23 +25,56 @@ public class SingUpController {
     private Button singUpButton;
 
     @FXML
-    void singUpButton1() {
-        singUpButton.setOnAction(event -> {
-            String loginText = Login.getText().trim();
-            String loginPassword = PasswordField.getText().trim();
-            if(!loginText.equals("") && !loginPassword.equals("")){
-                //if(loginText.equals("admin") && loginPassword.equals("12345")){
-                    loginAdmin(loginText, loginPassword);//}
-            }else  errorEnter.setText("Login and password is empty");
+    void SingUpButtonClick(){
+        String loginText = Login.getText().trim();
+        String loginPassword = PasswordField.getText().trim();
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        Users user = new Users();
+        user.setUserName(loginText);
+        user.setPassword(loginPassword);
+        ResultSet resultSet = dbHandler.getUser(user);
 
+        int counter = 0;
 
-        });
+        while(true){
+            try {
+                if (!resultSet.next()) break;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            counter++;
+        }
+
+        if(!loginText.equals("") && !loginPassword.equals("")){
+            if(loginText.equals("admin") && loginPassword.equals("12345")){
+                loginAdmin(loginText, loginPassword);
+            } else if(counter >= 1) {
+                loginUser(loginText, loginPassword);
+            }
+            else errorEnter.setText("Don't have this user");
+        }else  errorEnter.setText("Login and password is empty");
     }
 
     private void loginAdmin(String loginText, String loginPassword) {
         singUpButton.getScene().getWindow().hide();
         FxmlLoader fxmlLoader = new FxmlLoader();
-        fxmlLoader.fxmlLoader("hello-view.fxml");
+        try {
+            fxmlLoader.fxmlLoader("hello-view.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
+    private void loginUser(String loginText, String loginPassword) {
+        singUpButton.getScene().getWindow().hide();
+        FxmlLoader fxmlLoader = new FxmlLoader();
+        try {
+            fxmlLoader.fxmlLoader("StorehausMenu.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }
+

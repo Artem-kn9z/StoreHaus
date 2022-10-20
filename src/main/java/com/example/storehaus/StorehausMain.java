@@ -13,12 +13,10 @@ public class StorehausMain extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(StorehausMain.class.getResource("singUp.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 693, 592);
-        stage.setTitle("Storehase \" OOO how to cool \"");
+        stage.setTitle("Storehaus \" OOO how to cool \"");
         stage.setScene(scene);
         stage.show();
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
+    public static void main(String[] args) {launch();}
 }

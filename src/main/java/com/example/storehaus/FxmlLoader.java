@@ -9,10 +9,9 @@ import java.io.IOException;
 
 public class FxmlLoader{
 
-    public void fxmlLoader(String nameFile){
+    public void fxmlLoader(String nameFile) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(nameFile));
-
         try {
             loader.load();
         } catch (IOException e) {
@@ -20,9 +19,9 @@ public class FxmlLoader{
         }
         Parent root = loader.getRoot();
         Stage stage = new Stage();
-        stage.setTitle("Storehase \" OOO how to cool \"");
+        stage.setTitle("Storehaus \" OOO how to cool \"");
         stage.setScene(new Scene(root));
-        stage.showAndWait();
+        stage.show();
     }
 
 }

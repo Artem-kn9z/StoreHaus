@@ -1,11 +1,14 @@
 package com.example.storehaus;
 
+import java.io.InputStream;
+import java.io.Reader;
+import java.math.BigDecimal;
 import java.net.CookieHandler;
+import java.net.URL;
 import java.nio.file.attribute.UserPrincipal;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.Calendar;
+import java.util.Map;
 
 public class DatabaseHandler extends configs{
     Connection dbConnection;
@@ -40,6 +43,26 @@ public class DatabaseHandler extends configs{
             e.printStackTrace();
         }
 
+    }
+
+    public ResultSet getUser(Users user){
+        ResultSet resSet = null;
+
+        String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE " + Const.USER_USERNAME + "=? AND " + Const.USER_PASSWORD + "=?";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setString(1, user.getUserName());
+            prSt.setString(2, user.getPassword());
+
+
+            resSet = prSt.executeQuery();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }catch (ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        return resSet;
     }
     //write...
 
