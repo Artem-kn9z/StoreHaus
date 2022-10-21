@@ -1,14 +1,6 @@
 package com.example.storehaus;
 
-import java.io.InputStream;
-import java.io.Reader;
-import java.math.BigDecimal;
-import java.net.CookieHandler;
-import java.net.URL;
-import java.nio.file.attribute.UserPrincipal;
 import java.sql.*;
-import java.util.Calendar;
-import java.util.Map;
 
 public class DatabaseHandler extends configs{
     Connection dbConnection;

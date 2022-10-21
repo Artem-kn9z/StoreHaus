@@ -33,7 +33,6 @@ public class SingUpController {
         user.setUserName(loginText);
         user.setPassword(loginPassword);
         ResultSet resultSet = dbHandler.getUser(user);
-
         int counter = 0;
 
         while(true){

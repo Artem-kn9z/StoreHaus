@@ -31,4 +31,7 @@
    <left>
       <AnchorPane prefHeight="375.0" prefWidth="136.0" style="-fx-background-color: #707070;" BorderPane.alignment="CENTER" />
    </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

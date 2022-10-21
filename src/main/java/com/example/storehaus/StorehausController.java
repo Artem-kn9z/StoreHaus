@@ -25,7 +25,6 @@ public class StorehausController {
     }
     @FXML
     void workingWithStorehausButton1() {
-        workingWithStorehausButton.setOnAction(event -> {
             workingWithStorehausButton.getScene().getWindow().hide();
             FxmlLoader fxmlLoader1 = new FxmlLoader();
             try {
@@ -33,11 +32,9 @@ public class StorehausController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        });
     }
     @FXML
     void workingWithWorkersButton1() {
-        workingWithWorkersButton.setOnAction(event -> {
             workingWithWorkersButton.getScene().getWindow().hide();
             FxmlLoader fxmlLoader2 = new FxmlLoader();
             try {
@@ -45,7 +42,6 @@ public class StorehausController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        });
     }
 
 }

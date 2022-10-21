@@ -34,7 +34,12 @@ public class WorkersController {
 
     @FXML
     void createNewAcc1(ActionEvent event) {
-
+        FxmlLoader fxmlLoader2 = new FxmlLoader();
+        try {
+            fxmlLoader2.fxmlLoader("createNewAcc.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

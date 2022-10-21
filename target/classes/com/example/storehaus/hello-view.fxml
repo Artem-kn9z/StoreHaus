@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.storehaus.StorehausController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="693.0" style="-fx-background-color: #a0a0a0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.storehaus.StorehausController">
    <top>
-      <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="693.0" BorderPane.alignment="TOP_LEFT">
+      <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="693.0" style="-fx-background-color: #808080;" BorderPane.alignment="TOP_LEFT">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -37,8 +37,8 @@
    <center>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="211.0" prefWidth="388.0" spacing="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="workingWithStorehausButton" minHeight="0.0" minWidth="2.0" mnemonicParsing="false" onAction="#workingWithStorehausButton1" prefHeight="294.0" prefWidth="151.0" text="Working with storehaus" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-            <Button fx:id="workingWithWorkersButton" minHeight="0.0" minWidth="2.0" mnemonicParsing="false" onAction="#workingWithWorkersButton1" prefHeight="294.0" prefWidth="151.0" text="Working with workers" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="workingWithStorehausButton" minHeight="0.0" minWidth="2.0" mnemonicParsing="false" onAction="#workingWithStorehausButton1" prefHeight="294.0" prefWidth="151.0" style="-fx-background-color: #808080;" text="Working with storehaus" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+            <Button fx:id="workingWithWorkersButton" minHeight="0.0" minWidth="2.0" mnemonicParsing="false" onAction="#workingWithWorkersButton1" prefHeight="294.0" prefWidth="151.0" style="-fx-background-color: #808080;" text="Working with workers" textAlignment="CENTER" wrapText="true" />
          </children>
       </HBox>
    </center>
