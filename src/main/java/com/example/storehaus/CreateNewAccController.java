@@ -31,8 +31,8 @@ public class CreateNewAccController {
 
     @FXML
     void createAccButton1(ActionEvent event) {
-//        DatabaseHandler dbHandler = new DatabaseHandler();
-//        dbHandler.singUpUser(fnID.getText(),lnID.getText(),psID.getText(),unID.getText());
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        dbHandler.singUpUser(fnID.getText(),lnID.getText(),psID.getText(),unID.getText());
         createAccButton.getScene().getWindow().hide();
 
         InformationWindowController informationWindowController = new InformationWindowController();

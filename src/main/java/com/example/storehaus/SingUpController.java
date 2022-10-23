@@ -29,7 +29,7 @@ public class SingUpController {
         String loginText = Login.getText().trim();
         String loginPassword = PasswordField.getText().trim();
         DatabaseHandler dbHandler = new DatabaseHandler();
-        Users user = new Users();
+        User user = new User();
         user.setUserName(loginText);
         user.setPassword(loginPassword);
         ResultSet resultSet = dbHandler.getUser(user);

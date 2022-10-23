@@ -17,8 +17,8 @@ public class DatabaseHandler extends configs{
     public void singUpUser(String firstName, String lastName, String userName, String password){
         String insert = "INSERT INTO " + Const.USER_TABLE + "("
                 + Const.USER_FIRSTNAME + "," + Const.USER_LASTNAME + ","
-                + Const.USER_USERNAME + "," + Const.USER_PASSWORD + ")"
-                + "VALUES(?,?,?,?)";
+                + Const.USER_USERNAME + "," + Const.USER_PASSWORD + "," + Const.USER_NUMBEROFLINE + "," + Const.USER_LASTLINES + ")"
+                + "VALUES(?,?,?,?,0,0)";
 
 
         try {
@@ -37,7 +37,7 @@ public class DatabaseHandler extends configs{
 
     }
 
-    public ResultSet getUser(Users user){
+    public ResultSet getUser(User user){
         ResultSet resSet = null;
 
         String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE " + Const.USER_USERNAME + "=? AND " + Const.USER_PASSWORD + "=?";

@@ -36,14 +36,14 @@
       </MenuBar>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: C0C0C0;" BorderPane.alignment="CENTER">
+      <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: C0C0C0;" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="firstnameID" prefWidth="75.0" text="Firstname" />
           <TableColumn fx:id="lastnameID" prefWidth="75.0" text="Lastname" />
             <TableColumn fx:id="usernameID" prefWidth="75.0" text="Username" />
             <TableColumn fx:id="passwordID" prefWidth="75.0" text="Password" />
-            <TableColumn fx:id="nolID" prefWidth="102.0" text="Nuber of lines" />
-            <TableColumn fx:id="llID" prefWidth="73.0" text="Last lines" />
+            <TableColumn fx:id="nubOfLinID" prefWidth="102.0" text="Nuber of lines" />
+            <TableColumn fx:id="lastLineID" prefWidth="73.0" text="Last lines" />
         </columns>
       </TableView>
    </center>

@@ -2,32 +2,40 @@ package com.example.storehaus;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class WorkersController {
+public class WorkersController implements Initializable {
 
     @FXML
     private MenuItem createNewAcc;
     @FXML
-    private TableColumn<?, ?> firstnameID;
+    private TableView<User> table;
+    @FXML
+    private TableColumn<User, String> firstnameID;
 
     @FXML
-    private TableColumn<?, ?> lastnameID;
+    private TableColumn<User, String> lastnameID;
 
     @FXML
-    private TableColumn<?, ?> llID;
+    private TableColumn<User, Integer> lastLineID;
 
     @FXML
-    private TableColumn<?, ?> nolID;
+    private TableColumn<User, Integer> nubOfLinID;
 
     @FXML
-    private TableColumn<?, ?> passwordID;
+    private TableColumn<User, String> passwordID;
 
     @FXML
-    private TableColumn<?, ?> usernameID;
+    private TableColumn<User, String> usernameID;
+
 
     @FXML
     private MenuItem workWithStorehaus;
@@ -53,5 +61,18 @@ public class WorkersController {
                     throw new RuntimeException(e);
                 }
             });
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        firstnameID.setCellValueFactory(new PropertyValueFactory<User, String>("firstName"));
+        lastnameID.setCellValueFactory(new PropertyValueFactory<User, String>("lastName"));
+        usernameID.setCellValueFactory(new PropertyValueFactory<User, String>("userName"));
+        passwordID.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
+        nubOfLinID.setCellValueFactory(new PropertyValueFactory<User, Integer>("number of lines"));
+        lastLineID.setCellValueFactory(new PropertyValueFactory<User, Integer>("last line"));
+
+        // table.setItems(dbHandler.getUser());
     }
 }
