@@ -8,13 +8,25 @@ public class User {
     private  int nubOfLinID;
     private  int lastLineID;
 
-    public User() {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.password = password;
+    public User(String firstName, String lastName, String userName, String password, int nubOfLinID, int lastLineID) {
+        this.firstName = new String(firstName);
+        this.lastName =  new String(lastName);
+        this.userName = new String(userName);
+        this.password = new String(password);
         this.nubOfLinID = nubOfLinID;
         this.lastLineID = lastLineID;
+    }
+
+    public User() {
+
+    }
+
+    public User(String firstname, String lastname, String username, String password) {
+        this.firstName = this.firstName;
+        this.lastName = this.lastName;
+        this.userName = this.userName;
+        this.password = this.password;
+
     }
 
     public int getNubOfLinID() { return nubOfLinID; }

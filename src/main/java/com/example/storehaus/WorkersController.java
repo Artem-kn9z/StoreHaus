@@ -1,6 +1,7 @@
 package com.example.storehaus;
 
-import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
@@ -10,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class WorkersController implements Initializable {
@@ -41,7 +43,7 @@ public class WorkersController implements Initializable {
     private MenuItem workWithStorehaus;
 
     @FXML
-    void createNewAcc1(ActionEvent event) {
+    void createNewAcc1() {
         FxmlLoader fxmlLoader2 = new FxmlLoader();
         try {
             fxmlLoader2.fxmlLoader("createNewAcc.fxml");
@@ -65,14 +67,29 @@ public class WorkersController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        DatabaseHandler dbHandler = new DatabaseHandler();
-        firstnameID.setCellValueFactory(new PropertyValueFactory<User, String>("firstName"));
-        lastnameID.setCellValueFactory(new PropertyValueFactory<User, String>("lastName"));
-        usernameID.setCellValueFactory(new PropertyValueFactory<User, String>("userName"));
-        passwordID.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
-        nubOfLinID.setCellValueFactory(new PropertyValueFactory<User, Integer>("number of lines"));
-        lastLineID.setCellValueFactory(new PropertyValueFactory<User, Integer>("last line"));
+            ObservableList <User> data = FXCollections.observableArrayList();
+            DatabaseHandler dbHandler = new DatabaseHandler();
 
-        // table.setItems(dbHandler.getUser());
+        try {
+            ResultSet resultSet = dbHandler.getDbConnection().createStatement().executeQuery("SELECT * FROM users");
+            while (resultSet.next()) {
+                data.add(new User(resultSet.getString("firstname"),  resultSet.getString("lastname"),
+                                  resultSet.getString("username"),   resultSet.getString("password"),
+                                  resultSet.getInt("numberoflines"), resultSet.getInt("lastlines")));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        firstnameID.setCellValueFactory(new PropertyValueFactory("firstName"));
+        lastnameID.setCellValueFactory(new PropertyValueFactory("lastName"));
+        usernameID.setCellValueFactory(new PropertyValueFactory("userName"));
+        passwordID.setCellValueFactory(new PropertyValueFactory("password"));
+        nubOfLinID.setCellValueFactory(new PropertyValueFactory("nubOfLinID"));
+        lastLineID.setCellValueFactory(new PropertyValueFactory("lastLineID"));
+
+        table.setItems(null);
+        table.setItems(data);
+
     }
 }

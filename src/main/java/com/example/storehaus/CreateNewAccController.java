@@ -32,18 +32,18 @@ public class CreateNewAccController {
     @FXML
     void createAccButton1(ActionEvent event) {
         DatabaseHandler dbHandler = new DatabaseHandler();
-        dbHandler.singUpUser(fnID.getText(),lnID.getText(),psID.getText(),unID.getText());
+        dbHandler.singUpUser(fnID.getText(),lnID.getText(),psID.getText(),unID.getText(),0,0);
         createAccButton.getScene().getWindow().hide();
 
-        InformationWindowController informationWindowController = new InformationWindowController();
-        informationWindowController.setInformationText("lol");
+       // InformationWindowController informationWindowController = new InformationWindowController();
+       // informationWindowController.setInformationText("lol");
 
-        FxmlLoader fmxlLoader1 = new FxmlLoader();
-        try {
-            fmxlLoader1.fxmlLoader("informationWindow.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        FxmlLoader fmxlLoader1 = new FxmlLoader();
+//        try {
+//            fmxlLoader1.fxmlLoader("informationWindow.fxml");
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
 }

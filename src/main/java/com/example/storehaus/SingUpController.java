@@ -28,11 +28,14 @@ public class SingUpController {
     void SingUpButtonClick(){
         String loginText = Login.getText().trim();
         String loginPassword = PasswordField.getText().trim();
+
         DatabaseHandler dbHandler = new DatabaseHandler();
         User user = new User();
         user.setUserName(loginText);
         user.setPassword(loginPassword);
-        ResultSet resultSet = dbHandler.getUser(user);
+
+        ResultSet resultSet = dbHandler.getUserLogin(user);
+
         int counter = 0;
 
         while(true){
@@ -58,7 +61,7 @@ public class SingUpController {
         singUpButton.getScene().getWindow().hide();
         FxmlLoader fxmlLoader = new FxmlLoader();
         try {
-            fxmlLoader.fxmlLoader("hello-view.fxml");
+            fxmlLoader.fxmlLoader("selectionWindow.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

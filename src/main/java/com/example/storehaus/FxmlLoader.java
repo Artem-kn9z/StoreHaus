@@ -12,12 +12,15 @@ public class FxmlLoader{
     public void fxmlLoader(String nameFile) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(nameFile));
+
         try {
             loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         Parent root = loader.getRoot();
+
         Stage stage = new Stage();
         stage.setTitle("Storehaus \" OOO how to cool \"");
         stage.setScene(new Scene(root));
