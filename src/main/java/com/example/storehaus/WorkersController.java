@@ -52,7 +52,6 @@ public class WorkersController implements Initializable {
 
     @FXML
     void workiWithStorehaus11() {
-            workWithStorehaus.setOnAction(event -> {
                 //workWithStorehaus.getScene().getWindow().hide();
                 FxmlLoader fxmlLoader1 = new FxmlLoader();
                 try {
@@ -60,7 +59,6 @@ public class WorkersController implements Initializable {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-            });
     }
 
     @Override

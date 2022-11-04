@@ -2,7 +2,7 @@ package com.example.storehaus;
 
 import java.sql.*;
 
-public class DatabaseHandler extends configs{
+public class DatabaseHandler extends Сonfigs {
     Connection dbConnection;
 
     public Connection getDbConnection() throws ClassNotFoundException, SQLException{

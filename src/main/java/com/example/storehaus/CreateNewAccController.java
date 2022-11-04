@@ -1,14 +1,9 @@
 package com.example.storehaus;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -40,15 +35,16 @@ public class CreateNewAccController {
         dbHandler.singUpUser(fnID.getText(),lnID.getText(),psID.getText(),unID.getText(),0,0);
         createAccButton.getScene().getWindow().hide();
 
-       // InformationWindowController informationWindowController = new InformationWindowController();
-       // informationWindowController.setInformationText("lol");
+        Const.txt = "You created new account: Name - " + fnID.getText() +", lastname - "+
+                lnID.getText() + ", username - " + psID.getText() +
+                ", password - " + unID.getText()+ "!";
 
-//        FxmlLoader fmxlLoader1 = new FxmlLoader();
-//        try {
-//            fmxlLoader1.fxmlLoader("informationWindow.fxml");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+        FxmlLoader fmxlLoader1 = new FxmlLoader();
+        try {
+            fmxlLoader1.fxmlLoader("informationWindow.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

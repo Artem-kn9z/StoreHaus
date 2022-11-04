@@ -50,7 +50,7 @@
                   <Button mnemonicParsing="false" onAction="#Button1" text="Button" />
                </children>
             </HBox>
-            <TableView fx:id="table" style="-fx-background-color: C0C0C0;">
+            <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="524.0" prefWidth="686.0" style="-fx-background-color: C0C0C0;">
               <columns>
                 <TableColumn fx:id="firstnameID" prefWidth="97.0" text="Firstname" />
                 <TableColumn fx:id="lastnameID" prefWidth="91.0" text="Lastname" />
