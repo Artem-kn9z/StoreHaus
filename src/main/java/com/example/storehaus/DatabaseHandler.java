@@ -1,7 +1,5 @@
 package com.example.storehaus;
 
-import javafx.fxml.Initializable;
-
 import java.sql.*;
 
 public class DatabaseHandler extends configs{
@@ -41,11 +39,34 @@ public class DatabaseHandler extends configs{
 
     }
 
-    public ResultSet getUser(User user){
+    public ResultSet getProducts(Product product){
         ResultSet resSet = null;
 
-//        String select = "SELECT * FROM users ";// + Const.USER_TABLE + " WHERE " + Const.USER_USERNAME + "=? AND " + Const.USER_PASSWORD + "=? AND " + Const.USER_FIRSTNAME + "=? AND " + Const.USER_LASTNAME + "=? AND "
-//        // + "=? AND " + Const.USER_NUMBER_OF_LINES + "=? AND " + Const.USER_LAST_LINES  + "=?";
+        String select = "SELECT * FROM " + Const.PRODUCTS_TABLE + " WHERE " + Const.PRODUCTS_NAME + "=? AND " +
+                Const.PRODUCTS_BARCODE + "=? AND " + Const.PRODUCTS_PLACE_ON_STOREHAUS + "=? AND " +
+                Const.PRODUCTS_NUMBER + "=? AND " + Const.PRODUCTS_NUMBER_IN_STORAGE + "=?";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setString(1, product.getProductName());
+            prSt.setString(2, product.getBarcode());
+            prSt.setString(3, product.getPlaceOnStorehaus());
+            prSt.setString(4, product.getNumber());
+            prSt.setString(5, product.getNumberInStorage());
+
+
+            resSet = prSt.executeQuery();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }catch (ClassNotFoundException e){
+            e.printStackTrace();
+        }
+
+        return resSet;
+    }
+
+    public ResultSet getUser(User user){
+        ResultSet resSet = null;
 
         String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE " + Const.USER_USERNAME + "=? AND " +
                 Const.USER_PASSWORD + "=? AND " + Const.USER_FIRSTNAME + "=? AND " + Const.USER_LASTNAME + "=? AND "
@@ -60,6 +81,30 @@ public class DatabaseHandler extends configs{
             prSt.setInt(5, user.getNubOfLinID());
             prSt.setInt(6, user.getLastLineID());
 
+
+            resSet = prSt.executeQuery();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }catch (ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        return resSet;
+    }
+
+    public ResultSet getProduct(Product product){
+        ResultSet resSet = null;
+
+        String select = "SELECT * FROM " + Const.PRODUCTS_TABLE + " WHERE " + Const.PRODUCTS_NAME + "=? AND " +
+                Const.PRODUCTS_BARCODE + "=? AND " + Const.PRODUCTS_PLACE_ON_STOREHAUS + "=? AND " +
+                Const.PRODUCTS_NUMBER + "=? AND " + Const.PRODUCTS_NUMBER_IN_STORAGE + "=?";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setString(1, product.getProductName());
+            prSt.setString(2, product.getPlaceOnStorehaus());
+            prSt.setString(3, product.getBarcode());
+            prSt.setString(4, product.getNumber());
+            prSt.setString(5, product.getNumberInStorage());
 
             resSet = prSt.executeQuery();
         }catch (SQLException e){

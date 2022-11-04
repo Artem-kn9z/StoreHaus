@@ -22,25 +22,23 @@ public class WorkersController implements Initializable {
     private TableView<User> table;
     @FXML
     private TableColumn<User, String> firstnameID;
-
     @FXML
     private TableColumn<User, String> lastnameID;
-
     @FXML
     private TableColumn<User, Integer> lastLineID;
-
     @FXML
     private TableColumn<User, Integer> nubOfLinID;
-
     @FXML
     private TableColumn<User, String> passwordID;
-
     @FXML
     private TableColumn<User, String> usernameID;
-
-
     @FXML
     private MenuItem workWithStorehaus;
+
+    @FXML
+    void Button1() {
+        TableViewFun();
+    }
 
     @FXML
     void createNewAcc1() {
@@ -67,8 +65,12 @@ public class WorkersController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            ObservableList <User> data = FXCollections.observableArrayList();
-            DatabaseHandler dbHandler = new DatabaseHandler();
+        TableViewFun();
+    }
+
+    private void TableViewFun(){
+        ObservableList <User> data = FXCollections.observableArrayList();
+        DatabaseHandler dbHandler = new DatabaseHandler();
 
         try {
             ResultSet resultSet = dbHandler.getDbConnection().createStatement().executeQuery("SELECT * FROM users");

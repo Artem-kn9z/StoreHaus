@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -46,6 +47,7 @@
                <children>
                   <Label prefHeight="31.0" prefWidth="83.0" text="Search worker" />
                   <TextField prefHeight="25.0" prefWidth="102.0" promptText="Keywords..." />
+                  <Button mnemonicParsing="false" onAction="#Button1" text="Button" />
                </children>
             </HBox>
             <TableView fx:id="table" style="-fx-background-color: C0C0C0;">

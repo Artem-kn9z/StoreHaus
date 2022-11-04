@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #C0C0C0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="620.0" style="-fx-background-color: #C0C0C0;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.storehaus.StorageController">
    <top>
       <MenuBar style="-fx-background-color: #808080;" BorderPane.alignment="CENTER">
         <menus>
@@ -34,16 +34,15 @@
       <AnchorPane prefHeight="375.0" prefWidth="136.0" style="-fx-background-color: #707070;" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane BorderPane.alignment="CENTER">
          <children>
-            <TableView prefHeight="375.0" prefWidth="464.0">
+            <TableView fx:id="Table" prefHeight="373.0" prefWidth="484.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn fx:id="nameProduct" prefWidth="97.0" text="NameProduct" />
+                <TableColumn fx:id="barcode" prefWidth="87.0" text="Barcode" />
+                  <TableColumn fx:id="placeOnStorehaus" prefWidth="118.0" text="Plase on storehaus" />
+                  <TableColumn fx:id="number" prefWidth="79.0" text="Number" />
+                  <TableColumn fx:id="numberInStorehaus" prefWidth="102.0" text="Numer in Sorage" />
               </columns>
             </TableView>
          </children></AnchorPane>
